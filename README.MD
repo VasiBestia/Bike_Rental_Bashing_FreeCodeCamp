@@ -88,7 +88,7 @@ Start the interactive menu:
 ./bike-shop.sh
 ```
 ---
-##💾 Database Operations
+💾 Database Operations
 To export the current state of the database (schema + data) for backup:
 
 ```bash
@@ -96,20 +96,24 @@ To export the current state of the database (schema + data) for backup:
 pg_dump -U postgres bikes > bike_rental.sql
 ```
 ---
-##🧪 Workflow Example
+🧪 Workflow Example
 Start App: Run ./bike-shop.sh.
 Rent: Select "Rent a bike" from the menu.
 Select: Choose a bike type (e.g., Mountain) and size (e.g., 28).
 Customer: Enter your phone number (if new, you will be prompted for a name).
 Return: Later, run the script again and select "Return a bike" to mark it available.
 ---
-##🎓 Learning Outcomes
+🎓 Learning Outcomes
 This project demonstrates competency in:
 ✅ Writing advanced interactive Bash scripts.
+
 ✅ Connecting shell scripts to PostgreSQL using psql.
+
 ✅ Designing relational database schemas with constraints (FK, PK, UNIQUE).
+
 ✅ Managing application state via database transactions.
+
 ✅ Data persistence and database dumping/restoring.
 ---
-##👤 Author
+👤 Author
 Alexandru Gabriel Vasilescu Faculty of Automation and Computers
