@@ -1,100 +1,115 @@
-# 🚲 Bike Rental Shop — Bash & PostgreSQL
+<div align="center">
 
-A command-line bike rental application built with **Bash** and **PostgreSQL**, developed as part of the **freeCodeCamp Relational Database Certification**.  
-The project simulates a real-world bike rental system where users can rent and return bikes, while the database keeps track of availability and rentals.
+# 🚲 Bike Rental Shop
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Shell Script](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-```bash&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![FreeCodeCamp](https://img.shields.io/badge/FreeCodeCamp-Certification-0a0a23?style=for-the-badge&logo=freecodecamp&logoColor=white)
+
+**A command-line bike rental application built with ```bash and PostgreSQL.** *Developed as part of the freeCodeCamp Relational Database Certification.*
+
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-database-schema">Schema</a> •
+  <a href="#-how-to-run">How to Run</a> •
+  <a href="#-author">Author</a>
+</p>
+
+</div>
 
 ---
+
+## 📖 About
+This project simulates a real-world bike rental system management tool. It allows users to rent and return bikes interactively via the terminal, while a persistent PostgreSQL database tracks inventory availability and customer history in real-time.
 
 ## 📌 Features
 
-- Interactive **CLI menu** built in Bash
-- Rent available bikes
-- Return rented bikes
-- Persistent data storage using **PostgreSQL**
-- Real-time bike availability updates
-- Input validation and user-friendly messages
-
----
-
-## 🛠 Technologies Used
-
-- **Bash** (Shell scripting)
-- **PostgreSQL** (Relational Database)
-- **psql / pg_dump**
-- Linux command-line environment
+* 🖥️ **Interactive CLI:** Menu-driven interface built entirely in ```bash.
+* 🚲 **Rental Management:** Rent available bikes and return them seamlessly.
+* 💾 **Persistent Storage:** Data is stored securely in PostgreSQL.
+* ⚡ **Real-time Updates:** Instant availability status changes upon rental/return.
+* 🛡️ **Validation:** Input validation and user-friendly error messages.
 
 ---
 
 ## 🗄 Database Schema
 
-The database includes the following main tables:
+The system relies on three main relational tables:
 
-- **bikes**
-  - `bike_id` (PRIMARY KEY)
-  - `type`
-  - `size`
-  - `available` (BOOLEAN)
-
-- **customers**
-  - `customer_id` (PRIMARY KEY)
-  - `name`
-  - `phone` (UNIQUE)
-
-- **rentals**
-  - `rental_id` (PRIMARY KEY)
-  - `customer_id` (FOREIGN KEY)
-  - `bike_id` (FOREIGN KEY)
-  - `date_rented`
-  - `date_returned`
+| Table | Primary Key | Columns | Description |
+| :--- | :--- | :--- | :--- |
+| **`bikes`** | `bike_id` | `type`, `size`, `available` (BOOL) | Inventory of bikes and current status. |
+| **`customers`** | `customer_id` | `name`, `phone` (UNIQUE) | Customer contact information. |
+| **`rentals`** | `rental_id` | `customer_id`, `bike_id`, `date_rented`, `date_returned` | Links customers to bikes; tracks history. |
 
 ---
 
-## ▶️ How to Run the Project
+## 🛠 Technologies Used
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/bike-rental-shop.git
-   cd bike-rental-shop
-Make the script executable:
-```
+* **Bash (Shell Scripting):** Core logic and user interface.
+* **PostgreSQL:** Relational database management.
+* **Linux/Unix Environment:** Standard command-line tools.
+* **pg_dump:** For database backup and portability.
+
+---
+
+## ▶️ How to Run
+
+### 1. Prerequisites
+Ensure you have **PostgreSQL** installed and running on your machine.
+
+### 2. Installation
+Clone the repository and navigate to the folder:
 
 ```bash
+git clone [https://github.com/your-username/bike-rental-shop.git](https://github.com/your-username/bike-rental-shop.git)
+cd bike-rental-shop
+```
+3. Permissions
+Make the script executable:
+
+```bash
+
 chmod +x bike-shop.sh
 ```
-Run the application:
+4. Setup Database
+(Optional) Restore the database schema if starting fresh:
 
 ```bash
+
+psql -U postgres < bike_rental.sql
+```
+5. Run the Application
+Start the interactive menu:
+
+```bash
+
 ./bike-shop.sh
 ```
 ---
-##💾 Database Export
-To export the PostgreSQL database as a .sql file:
+##💾 Database Operations
+To export the current state of the database (schema + data) for backup:
 
 ```bash
+
 pg_dump -U postgres bikes > bike_rental.sql
 ```
-This allows easy backup, sharing, or reuse of the database schema and data.
 ---
-##🧪 Example Workflow
-Start the application
-Choose a bike to rent
-Enter customer details
-Return the bike
-Bike becomes available again
+##🧪 Workflow Example
+Start App: Run ./bike-shop.sh.
+Rent: Select "Rent a bike" from the menu.
+Select: Choose a bike type (e.g., Mountain) and size (e.g., 28).
+Customer: Enter your phone number (if new, you will be prompted for a name).
+Return: Later, run the script again and select "Return a bike" to mark it available.
 ---
-##🎓 What I Learned
-Writing interactive Bash scripts
-Connecting Bash scripts to PostgreSQL using psql
-Designing relational databases
-Using constraints (PRIMARY KEY, FOREIGN KEY, UNIQUE)
-Managing application state through a database
-Exporting and importing databases with pg_dump
----
-##📎 Certification
-This project is part of the
-freeCodeCamp – Relational Database Certification
+##🎓 Learning Outcomes
+This project demonstrates competency in:
+✅ Writing advanced interactive Bash scripts.
+✅ Connecting shell scripts to PostgreSQL using psql.
+✅ Designing relational database schemas with constraints (FK, PK, UNIQUE).
+✅ Managing application state via database transactions.
+✅ Data persistence and database dumping/restoring.
 ---
 ##👤 Author
-Alexandru Gabriel Vasilescu
-Faculty of Automation and Computers
-University Politehnica of Bucharest
+Alexandru Gabriel Vasilescu Faculty of Automation and Computers
